@@ -13,34 +13,43 @@
         android:theme="@style/Theme.AutoService_4"
         tools:targetApi="31" >
         <activity
-            android:name=".ProfileActivities.InfoAutoActivity"
+            android:name=".AdminActivities.ZapisActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivities.InfoHumanActivity"
+            android:name=".AdminActivities.UslugiAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".ShowDetalisUslugaActivity"
+            android:name=".MainActivities.LoginAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".AddUslugaActivity"
+            android:name=".UserActivities.InfoAutoActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".UserActivities.InfoHumanActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".UserActivities.ShowDetalisUslugaActivity"
             android:exported="false" />
         <activity
-            android:name=".UslugiActivity"
+            android:name=".AdminActivities.AddUslugaActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".UserActivities.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".UserActivities.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".UserActivities.UslugiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivities.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivities.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivities.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

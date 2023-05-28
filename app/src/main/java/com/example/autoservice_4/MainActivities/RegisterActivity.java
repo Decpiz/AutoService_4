@@ -1,4 +1,4 @@
-package com.example.autoservice_4;
+package com.example.autoservice_4.MainActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.autoservice_4.R;
+import com.example.autoservice_4.UserActivities.UslugiActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

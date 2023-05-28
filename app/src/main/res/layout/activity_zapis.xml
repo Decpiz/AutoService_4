@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#818181"
+    tools:context=".AdminActivities.ZapisActivity">
+
+
+    <TextView
+        android:id="@+id/uslugi_tvTitle4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="История записи"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tobAdd"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:background="#D3D3D3"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tobZapis"
+        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintStart_toEndOf="@+id/tobUslugi" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tobZapis"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:background="@drawable/topor_right"
+        android:backgroundTint="#6A5E93"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tobUslugi"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:background="@drawable/topor_left"
+        android:backgroundTint="#D3D3D3"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/uslugi_ivUslugi"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tobUslugi"
+        app:layout_constraintEnd_toStartOf="@+id/tobAdd"
+        app:layout_constraintStart_toStartOf="@+id/tobUslugi"
+        app:layout_constraintTop_toTopOf="@+id/tobUslugi"
+        app:srcCompat="@drawable/uslugi_icon" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tobAdd"
+        app:layout_constraintEnd_toEndOf="@+id/tobAdd"
+        app:layout_constraintStart_toStartOf="@+id/tobAdd"
+        app:layout_constraintTop_toTopOf="@+id/tobAdd"
+        app:srcCompat="@drawable/add_icon" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="69dp"
+        android:layout_height="69dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tobZapis"
+        app:layout_constraintStart_toEndOf="@+id/tobAdd"
+        app:layout_constraintTop_toTopOf="@+id/tobZapis"
+        app:srcCompat="@drawable/zapis_icon" />
+
+    <ListView
+        android:id="@+id/lvHistoryAppointment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="82dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/tobAdd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uslugi_tvTitle4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

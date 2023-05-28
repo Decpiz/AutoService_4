@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#818181"
-    tools:context=".ShowDetalisUslugaActivity">
+    tools:context=".UserActivities.ShowDetalisUslugaActivity">
 
     <TextView
         android:id="@+id/detal_tvTitle"
@@ -122,36 +122,20 @@
         app:layout_constraintTop_toBottomOf="@+id/detal_tvTitleTime" />
 
     <Button
-        android:id="@+id/detal_btnPokaNeZnau"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:backgroundTint="#D3D3D3"
-        android:text="Пока хз"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/detal_btnRegUsluga"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detal_tvTitleFullPrice"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
         android:id="@+id/detal_btnRegUsluga"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginBottom="60dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="#D3D3D3"
         android:text="Записаться"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detal_tvTitleFullPrice"
+        app:layout_constraintVertical_bias="0.963" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

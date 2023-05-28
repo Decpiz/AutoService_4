@@ -1,4 +1,4 @@
-package com.example.autoservice_4;
+package com.example.autoservice_4.MainActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.autoservice_4.AdminActivities.AddUslugaActivity;
 import com.example.autoservice_4.Prevalent.Prevalent;
+import com.example.autoservice_4.R;
+import com.example.autoservice_4.UserActivities.UslugiActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -20,7 +23,6 @@ import io.paperdb.Paper;
 public class MainActivity extends AppCompatActivity {
     private Button btnLogin, btnReg, btnGdeMi, btnSotr;
     private FirebaseAuth mAuth;
-    private Button btnXyi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogin = (Button) findViewById(R.id.main_btnLogin);
         btnReg = (Button) findViewById(R.id.main_btnReg);
-        btnXyi = (Button) findViewById(R.id.buttonXYILO);
 
         Paper.init(this);
         String emailKey = Paper.book().read(Prevalent.UserEmailKey);
@@ -42,14 +43,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goLoginActivity = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(goLoginActivity);
-            }
-        });
-
-        btnXyi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goAddUsluga = new Intent(MainActivity.this, AddUslugaActivity.class);
-                startActivity(goAddUsluga);
             }
         });
 

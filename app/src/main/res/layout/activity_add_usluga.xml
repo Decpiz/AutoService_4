@@ -4,67 +4,180 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddUslugaActivity">
+    android:background="#818181"
+    tools:context=".AdminActivities.AddUslugaActivity">
 
-    <EditText
-        android:id="@+id/titleInput"
+    <TextView
+        android:id="@+id/uslugi_tvTitle3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Название"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Новая услуга"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/black"
+        android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/timeInput"
+    <TextView
+        android:id="@+id/uslugi_tvTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="Время ожидания"
-        app:layout_constraintEnd_toEndOf="@+id/priceInput"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/priceInput"
-        app:layout_constraintTop_toBottomOf="@+id/priceInput" />
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Внесите данные"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uslugi_tvTitle3" />
 
     <EditText
-        android:id="@+id/fullPriceInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:id="@+id/titleInput"
+        android:layout_width="300dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/et_info"
         android:ems="10"
+        android:hint="Название"
         android:inputType="text"
-        android:hint="Общая стоимость"
-        app:layout_constraintEnd_toEndOf="@+id/timeInput"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/timeInput"
-        app:layout_constraintTop_toBottomOf="@+id/timeInput" />
+        android:paddingLeft="12dp"
+        android:textColorHint="#59000000"
+        app:layout_constraintEnd_toEndOf="@+id/uslugi_tvTitle2"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/uslugi_tvTitle2"
+        app:layout_constraintTop_toBottomOf="@+id/uslugi_tvTitle2" />
 
     <EditText
         android:id="@+id/priceInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/et_info"
         android:ems="10"
         android:hint="Стоимость"
         android:inputType="number"
+        android:paddingLeft="12dp"
+        android:textColorHint="#59000000"
         app:layout_constraintEnd_toEndOf="@+id/titleInput"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/titleInput"
         app:layout_constraintTop_toBottomOf="@+id/titleInput" />
 
     <Button
-        android:id="@+id/buttonZalupa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Нерабочая кнопка"
+        android:id="@+id/btnAddUsluga"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="72dp"
+        android:backgroundTint="#D3D3D3"
+        android:text="Добавить услугу"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tobAdd"
         app:layout_constraintEnd_toEndOf="@+id/fullPriceInput"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/fullPriceInput"
-        app:layout_constraintTop_toBottomOf="@+id/fullPriceInput" />
+        app:layout_constraintTop_toBottomOf="@+id/fullPriceInput"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/fullPriceInput"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/et_info"
+        android:ems="10"
+        android:hint="Общая стоимость"
+        android:inputType="text"
+        android:paddingLeft="12dp"
+        android:textColorHint="#59000000"
+        app:layout_constraintEnd_toEndOf="@+id/timeInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/timeInput"
+        app:layout_constraintTop_toBottomOf="@+id/timeInput" />
+
+    <EditText
+        android:id="@+id/timeInput"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/et_info"
+        android:ems="10"
+        android:hint="Время ожидания"
+        android:inputType="number"
+        android:paddingLeft="12dp"
+        android:textColorHint="#59000000"
+        app:layout_constraintEnd_toEndOf="@+id/priceInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/priceInput"
+        app:layout_constraintTop_toBottomOf="@+id/priceInput" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tobAdd"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:background="#6A5E93"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tobZapis"
+        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintStart_toEndOf="@+id/tobUslugi" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tobZapis"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:background="@drawable/topor_right"
+        android:backgroundTint="#D3D3D3"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tobUslugi"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:background="@drawable/topor_left"
+        android:backgroundTint="#D3D3D3"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/uslugi_ivUslugi"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tobUslugi"
+        app:layout_constraintEnd_toStartOf="@+id/tobAdd"
+        app:layout_constraintStart_toStartOf="@+id/tobUslugi"
+        app:layout_constraintTop_toTopOf="@+id/tobUslugi"
+        app:srcCompat="@drawable/uslugi_icon" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tobAdd"
+        app:layout_constraintEnd_toEndOf="@+id/tobAdd"
+        app:layout_constraintStart_toStartOf="@+id/tobAdd"
+        app:layout_constraintTop_toTopOf="@+id/tobAdd"
+        app:srcCompat="@drawable/add_icon" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="69dp"
+        android:layout_height="69dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tobZapis"
+        app:layout_constraintStart_toEndOf="@+id/tobAdd"
+        app:layout_constraintTop_toTopOf="@+id/tobZapis"
+        app:srcCompat="@drawable/zapis_icon" />
 </androidx.constraintlayout.widget.ConstraintLayout>

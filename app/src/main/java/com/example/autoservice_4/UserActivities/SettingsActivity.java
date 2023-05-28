@@ -1,12 +1,13 @@
-package com.example.autoservice_4;
+package com.example.autoservice_4.UserActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.autoservice_4.R;
 
 public class SettingsActivity extends AppCompatActivity {
     private Toolbar tobUslugi, tobProfile;
@@ -31,7 +32,7 @@ public class SettingsActivity extends AppCompatActivity {
         tobUslugi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goUslugi = new Intent(SettingsActivity.this,UslugiActivity.class);
+                Intent goUslugi = new Intent(SettingsActivity.this, UslugiActivity.class);
                 startActivity(goUslugi);
             }
         });
@@ -40,7 +41,7 @@ public class SettingsActivity extends AppCompatActivity {
         tobProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goProfile = new Intent(SettingsActivity.this,ProfileActivity.class);
+                Intent goProfile = new Intent(SettingsActivity.this, ProfileActivity.class);
                 startActivity(goProfile);
             }
         });

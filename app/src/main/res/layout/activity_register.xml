@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#818181"
-    tools:context=".RegisterActivity">
+    tools:context=".MainActivities.RegisterActivity">
 
     <Button
         android:id="@+id/reg_btnRegister"
@@ -62,7 +62,7 @@
         android:inputType="textEmailAddress"
         android:padding="15dp"
         android:textColor="@android:color/black"
-        android:textColorHint="#000000"
+        android:textColorHint="#59000000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -82,7 +82,7 @@
         android:inputType="textPassword"
         android:padding="15dp"
         android:textColor="@android:color/black"
-        android:textColorHint="#000000"
+        android:textColorHint="#59000000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -102,7 +102,7 @@
         android:inputType="textPassword"
         android:padding="15dp"
         android:textColor="@android:color/black"
-        android:textColorHint="#000000"
+        android:textColorHint="#59000000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

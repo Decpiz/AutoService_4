@@ -1,4 +1,4 @@
-package com.example.autoservice_4;
+package com.example.autoservice_4.UserActivities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,16 +8,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.autoservice_4.MainActivities.MainActivity;
 import com.example.autoservice_4.Prevalent.Prevalent;
-import com.example.autoservice_4.ProfileActivities.InfoAutoActivity;
-import com.example.autoservice_4.ProfileActivities.InfoHumanActivity;
+import com.example.autoservice_4.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,7 +122,7 @@ public class ProfileActivity extends AppCompatActivity {
         tobUslugi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goUslugi = new Intent(ProfileActivity.this,UslugiActivity.class);
+                Intent goUslugi = new Intent(ProfileActivity.this, UslugiActivity.class);
                 startActivity(goUslugi);
             }
         });
@@ -132,7 +131,7 @@ public class ProfileActivity extends AppCompatActivity {
         tobSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goSettings = new Intent(ProfileActivity.this,SettingsActivity.class);
+                Intent goSettings = new Intent(ProfileActivity.this, SettingsActivity.class);
                 startActivity(goSettings);
             }
         });

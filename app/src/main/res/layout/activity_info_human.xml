@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#818181"
-    tools:context=".ProfileActivities.InfoHumanActivity">
+    tools:context=".UserActivities.InfoHumanActivity">
 
 
     <ImageView
@@ -53,6 +53,7 @@
         android:ems="10"
         android:enabled="false"
         android:hint="89995554433"
+        android:textColorHint="#59000000"
         android:textColor="@color/black"
         android:inputType="phone"
         android:paddingLeft="20dp"
@@ -95,6 +96,7 @@
         android:ems="10"
         android:enabled="false"
         android:hint="qwerty18@xxx.xx"
+        android:textColorHint="#59000000"
         android:textColor="@color/black"
         android:inputType="textEmailAddress"
         android:paddingLeft="20dp"
@@ -113,6 +115,7 @@
         android:ems="10"
         android:enabled="false"
         android:hint="Имя"
+        android:textColorHint="#59000000"
         android:textColor="@color/black"
         android:inputType="text"
         android:paddingLeft="20dp"
@@ -142,6 +145,7 @@
         android:ems="10"
         android:enabled="false"
         android:hint="Отчество"
+        android:textColorHint="#59000000"
         android:textColor="@color/black"
         android:inputType="text"
         android:paddingLeft="20dp"
@@ -160,6 +164,7 @@
         android:ems="10"
         android:enabled="false"
         android:hint="Фамилия"
+        android:textColorHint="#59000000"
         android:textColor="@color/black"
         android:inputType="text"
         android:paddingLeft="20dp"

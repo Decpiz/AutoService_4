@@ -1,7 +1,6 @@
-package com.example.autoservice_4;
+package com.example.autoservice_4.AdminActivities;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -12,7 +11,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.autoservice_4.Const;
 import com.example.autoservice_4.Model.Uslugi;
+import com.example.autoservice_4.R;
+import com.example.autoservice_4.UserActivities.ProfileActivity;
+import com.example.autoservice_4.UserActivities.SettingsActivity;
+import com.example.autoservice_4.UserActivities.ShowDetalisUslugaActivity;
+import com.example.autoservice_4.UserActivities.UslugiActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,11 +27,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UslugiActivity extends AppCompatActivity {
-
-    private Toolbar tobProfile, tobSettings;
+public class UslugiAdminActivity extends AppCompatActivity {
+    private Toolbar tobAdd, tobZapis;
 
     private DatabaseReference mDataBase;
+
     private ListView lvUslugiList;
     private ArrayAdapter<String> adapter;
     private List<String> listData;
@@ -35,18 +40,17 @@ public class UslugiActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uslugi);
+        setContentView(R.layout.activity_uslugi_admin);
 
         Init();
-        GetDataFromDB();
         DownPanel();
-
+        GetDataFromDB();
 
         lvUslugiList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Uslugi usluga = listTemp.get(i);
-                Intent goDetalis = new Intent(UslugiActivity.this, ShowDetalisUslugaActivity.class);
+                Intent goDetalis = new Intent(UslugiAdminActivity.this, ShowDetalisUslugaActivity.class);
                 goDetalis.putExtra(Const.INTENT_EXTRA1, usluga.title);
                 goDetalis.putExtra(Const.INTENT_EXTRA2, usluga.price);
                 goDetalis.putExtra(Const.INTENT_EXTRA3, usluga.time);
@@ -54,6 +58,7 @@ public class UslugiActivity extends AppCompatActivity {
                 startActivity(goDetalis);
             }
         });
+
     }
 
     private void GetDataFromDB()
@@ -82,8 +87,8 @@ public class UslugiActivity extends AppCompatActivity {
 
     private void Init()
     {
-        tobProfile = (Toolbar) findViewById(R.id.uslugi_tobProfile);
-        tobSettings = (Toolbar) findViewById(R.id.uslugi_tobSettings);
+        tobAdd = (Toolbar) findViewById(R.id.tobAdd);
+        tobZapis = (Toolbar) findViewById(R.id.tobZapis);
 
         lvUslugiList = (ListView) findViewById(R.id.uslugi_lvUslugiList);
 
@@ -99,20 +104,20 @@ public class UslugiActivity extends AppCompatActivity {
 
     private void DownPanel()
     {
-        tobProfile.setOnClickListener(new View.OnClickListener() {
+        tobZapis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goProfile = new Intent(UslugiActivity.this,ProfileActivity.class);
-                startActivity(goProfile);
+                Intent goZapis = new Intent(UslugiAdminActivity.this, ZapisActivity.class);
+                startActivity(goZapis);
             }
         });
 
 
-        tobSettings.setOnClickListener(new View.OnClickListener() {
+        tobAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goSettings = new Intent(UslugiActivity.this,SettingsActivity.class);
-                startActivity(goSettings);
+                Intent goAdd = new Intent(UslugiAdminActivity.this, AddUslugaActivity.class);
+                startActivity(goAdd);
             }
         });
     }

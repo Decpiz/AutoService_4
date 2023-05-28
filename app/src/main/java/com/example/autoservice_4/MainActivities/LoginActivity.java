@@ -1,4 +1,4 @@
-package com.example.autoservice_4;
+package com.example.autoservice_4.MainActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.autoservice_4.Prevalent.Prevalent;
+import com.example.autoservice_4.R;
+import com.example.autoservice_4.UserActivities.UslugiActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -22,7 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
-    private Button btnLogin, btnBack, btnZabilParol;
+    private Button btnLogin, btnBack, btnAdmin, btnZabilParol;
     private EditText etMailInput, etPasswordInput;
     private CheckBox cbZapomnit;
     private ProgressDialog loadingBar;
@@ -33,28 +35,21 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Paper.init(this);
-
-        mAuth = FirebaseAuth.getInstance();
-
-        cbZapomnit = (CheckBox) findViewById(R.id.log_cbZapomnit);
-
-        btnLogin = (Button) findViewById(R.id.log_btnLogin);
-        btnBack = (Button) findViewById(R.id.log_btnBack);
-        btnZabilParol = (Button) findViewById(R.id.log_btnZabilPass);
-
-        etMailInput = (EditText) findViewById(R.id.log_numberInput);
-        etPasswordInput = (EditText) findViewById(R.id.log_passwordInput);
-
-        loadingBar = new ProgressDialog(this);
-
-
+        Init();
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent goBack = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(goBack);
+            }
+        });
+
+        btnAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goAdmin = new Intent(LoginActivity.this, LoginAdminActivity.class);
+                startActivity(goAdmin);
             }
         });
 
@@ -105,5 +100,24 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    private void Init()
+    {
+        Paper.init(this);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        cbZapomnit = (CheckBox) findViewById(R.id.log_cbZapomnit);
+
+        btnLogin = (Button) findViewById(R.id.log_btnLogin);
+        btnBack = (Button) findViewById(R.id.log_btnBack);
+        btnZabilParol = (Button) findViewById(R.id.log_btnZabilPass);
+        btnAdmin = (Button) findViewById(R.id.log_btnAdmin);
+
+        etMailInput = (EditText) findViewById(R.id.log_numberInput);
+        etPasswordInput = (EditText) findViewById(R.id.log_passwordInput);
+
+        loadingBar = new ProgressDialog(this);
     }
 }

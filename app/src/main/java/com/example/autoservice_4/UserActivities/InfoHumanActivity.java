@@ -1,4 +1,4 @@
-package com.example.autoservice_4.ProfileActivities;
+package com.example.autoservice_4.UserActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,6 @@ import android.widget.ImageView;
 
 import com.example.autoservice_4.Const;
 import com.example.autoservice_4.Prevalent.Prevalent;
-import com.example.autoservice_4.ProfileActivity;
 import com.example.autoservice_4.R;
 
 import io.paperdb.Paper;
