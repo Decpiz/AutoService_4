@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#818181"
+    tools:context=".ProfileActivities.InfoHumanActivity">
+
+
+    <ImageView
+        android:id="@+id/infohuman_btnBack"
+        android:layout_width="44dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.246"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_icon" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Ваши данные"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
+        android:text="ФИО"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/infohuman_etNumber"
+        android:layout_width="266dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/et_info"
+        android:backgroundTintMode="src_in"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="89995554433"
+        android:textColor="@color/black"
+        android:inputType="phone"
+        android:paddingLeft="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ImageView
+        android:id="@+id/infohuman_btnEditContacts"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:srcCompat="@drawable/edit_icon" />
+
+    <ImageView
+        android:id="@+id/infohuman_btnEditFio"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/edit_icon" />
+
+    <EditText
+        android:id="@+id/infohuman_etEmail"
+        android:layout_width="266dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/et_info"
+        android:backgroundTintMode="src_in"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="qwerty18@xxx.xx"
+        android:textColor="@color/black"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/infohuman_etNumber"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/infohuman_etNumber"
+        app:layout_constraintTop_toBottomOf="@+id/infohuman_etNumber" />
+
+    <EditText
+        android:id="@+id/infohuman_etName"
+        android:layout_width="266dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/et_info"
+        android:backgroundTintMode="src_in"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Имя"
+        android:textColor="@color/black"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="80dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infohuman_etPatronomic" />
+
+    <EditText
+        android:id="@+id/infohuman_etPatronomic"
+        android:layout_width="266dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/et_info"
+        android:backgroundTintMode="src_in"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Отчество"
+        android:textColor="@color/black"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/infohuman_etSecName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/infohuman_etSecName"
+        app:layout_constraintTop_toBottomOf="@+id/infohuman_etSecName" />
+
+    <EditText
+        android:id="@+id/infohuman_etSecName"
+        android:layout_width="266dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/et_info"
+        android:backgroundTintMode="src_in"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Фамилия"
+        android:textColor="@color/black"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/infohuman_etName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/infohuman_etName"
+        app:layout_constraintTop_toBottomOf="@+id/infohuman_etName" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="Контакты"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <Button
+        android:id="@+id/infohuman_btnSaveFio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="95dp"
+        android:backgroundTint="#D3D3D3"
+        android:text="Сохранить"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infohuman_etPatronomic" />
+
+    <Button
+        android:id="@+id/infohuman_btnSaveContacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="95dp"
+        android:backgroundTint="#D3D3D3"
+        android:text="Сохранить"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infohuman_etEmail" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

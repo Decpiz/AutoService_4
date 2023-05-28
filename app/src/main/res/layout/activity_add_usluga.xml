@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddUslugaActivity">
+
+    <EditText
+        android:id="@+id/titleInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Название"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/timeInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Время ожидания"
+        app:layout_constraintEnd_toEndOf="@+id/priceInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/priceInput"
+        app:layout_constraintTop_toBottomOf="@+id/priceInput" />
+
+    <EditText
+        android:id="@+id/fullPriceInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Общая стоимость"
+        app:layout_constraintEnd_toEndOf="@+id/timeInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/timeInput"
+        app:layout_constraintTop_toBottomOf="@+id/timeInput" />
+
+    <EditText
+        android:id="@+id/priceInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Стоимость"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/titleInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/titleInput"
+        app:layout_constraintTop_toBottomOf="@+id/titleInput" />
+
+    <Button
+        android:id="@+id/buttonZalupa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Нерабочая кнопка"
+        app:layout_constraintEnd_toEndOf="@+id/fullPriceInput"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/fullPriceInput"
+        app:layout_constraintTop_toBottomOf="@+id/fullPriceInput" />
+</androidx.constraintlayout.widget.ConstraintLayout>

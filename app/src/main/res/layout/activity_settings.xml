@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#818181"
+    tools:context=".SettingsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tobUslugi"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:background="#D3D3D3"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tobSettings"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tobProfile" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tobSettings"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:background="@drawable/topor_right"
+        android:backgroundTint="#6A5E93"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tobProfile"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:background="@drawable/topor_left"
+        android:backgroundTint="#D3D3D3"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tobProfile"
+        app:layout_constraintEnd_toEndOf="@+id/tobProfile"
+        app:layout_constraintStart_toStartOf="@+id/tobProfile"
+        app:layout_constraintTop_toTopOf="@+id/tobProfile"
+        app:srcCompat="@drawable/profile_icon" />
+
+    <ImageView
+        android:id="@+id/ivUslugi"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tobUslugi"
+        app:layout_constraintEnd_toEndOf="@+id/tobUslugi"
+        app:layout_constraintStart_toStartOf="@+id/tobUslugi"
+        app:layout_constraintTop_toTopOf="@+id/tobUslugi"
+        app:srcCompat="@drawable/uslugi_icon" />
+
+    <ImageView
+        android:id="@+id/ivSettings"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tobSettings"
+        app:layout_constraintEnd_toEndOf="@+id/tobSettings"
+        app:layout_constraintStart_toStartOf="@+id/tobSettings"
+        app:layout_constraintTop_toTopOf="@+id/tobSettings"
+        app:srcCompat="@drawable/settings_icon" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

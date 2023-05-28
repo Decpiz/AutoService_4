@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#818181"
+    tools:context=".ProfileActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/profile_tobUslugi"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:background="#D3D3D3"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/profile_tobSettings"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/profile_tobProfile" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/profile_tobSettings"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:background="@drawable/topor_right"
+        android:backgroundTint="#D3D3D3"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/profile_tobProfile"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:backgroundTint="#6A5E93"
+        android:background="@drawable/topor_left"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/profileIcon"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_tobProfile"
+        app:layout_constraintEnd_toEndOf="@+id/profile_tobProfile"
+        app:layout_constraintStart_toStartOf="@+id/profile_tobProfile"
+        app:layout_constraintTop_toTopOf="@+id/profile_tobProfile"
+        app:srcCompat="@drawable/profile_icon" />
+
+    <ImageView
+        android:id="@+id/uslugiIcon"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_tobUslugi"
+        app:layout_constraintEnd_toEndOf="@+id/profile_tobUslugi"
+        app:layout_constraintStart_toStartOf="@+id/profile_tobUslugi"
+        app:layout_constraintTop_toTopOf="@+id/profile_tobUslugi"
+        app:srcCompat="@drawable/uslugi_icon" />
+
+    <ImageView
+        android:id="@+id/uslugi_ivSettings"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_tobSettings"
+        app:layout_constraintEnd_toEndOf="@+id/profile_tobSettings"
+        app:layout_constraintStart_toStartOf="@+id/profile_tobSettings"
+        app:layout_constraintTop_toTopOf="@+id/profile_tobSettings"
+        app:srcCompat="@drawable/settings_icon" />
+
+    <TextView
+        android:id="@+id/profile_tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Профиль"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/profile_ivOutAccount"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/profile_tvTitle"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/out_account_icon" />
+
+    <Button
+        android:id="@+id/profile_btnFullInfoHuman"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="#D3D3D3"
+        android:text="Личная информация"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/profile_btnFullInfoAuto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/profile_btnFullInfoAuto"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="#D3D3D3"
+        android:text="Информация об автомобиле"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/profile_btnEditPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/profile_btnEditPassword"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#D3D3D3"
+        android:text="Сменить пароль"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/profile_tobUslugi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/profile_btnFullInfoHuman"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/profile_tvTitleHistoryRepairs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="История ремонта"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_tvTitle" />
+
+    <ListView
+        android:id="@+id/profile_lvHistoryList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="306dp"
+        android:layout_marginTop="104dp"
+        app:layout_constraintBottom_toTopOf="@+id/divider4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_tvTitleHistoryRepairs" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
