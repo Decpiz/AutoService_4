@@ -46,19 +46,6 @@ public class UslugiAdminActivity extends AppCompatActivity {
         DownPanel();
         GetDataFromDB();
 
-        lvUslugiList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Uslugi usluga = listTemp.get(i);
-                Intent goDetalis = new Intent(UslugiAdminActivity.this, ShowDetalisUslugaActivity.class);
-                goDetalis.putExtra(Const.INTENT_EXTRA1, usluga.title);
-                goDetalis.putExtra(Const.INTENT_EXTRA2, usluga.price);
-                goDetalis.putExtra(Const.INTENT_EXTRA3, usluga.time);
-                goDetalis.putExtra(Const.INTENT_EXTRA4, usluga.fullPrice);
-                startActivity(goDetalis);
-            }
-        });
-
     }
 
     private void GetDataFromDB()

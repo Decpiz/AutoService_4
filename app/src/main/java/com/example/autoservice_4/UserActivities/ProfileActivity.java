@@ -1,5 +1,6 @@
 package com.example.autoservice_4.UserActivities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -14,9 +15,18 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.autoservice_4.Const;
 import com.example.autoservice_4.MainActivities.MainActivity;
+import com.example.autoservice_4.Model.Appointment;
+import com.example.autoservice_4.Model.Users;
 import com.example.autoservice_4.Prevalent.Prevalent;
 import com.example.autoservice_4.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +40,12 @@ public class ProfileActivity extends AppCompatActivity {
     private ListView lvHistoryList;
     private ArrayAdapter<String> adapter;
     private List<String> listPut;
-
+    private List<Users> listUsers;
+    private List<Appointment> listAppointment;
     private AlertDialog.Builder confirmOut;
+    private DatabaseReference uDataBase, aDataBase;
+    private FirebaseAuth mAuth;
+    private String userEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,12 +103,62 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void PutHistoryList()
     {
-        for(int i = 1; i<20; i++)
-        {
-            String item = "" + i;
-            listPut.add(item);
-        }
-        adapter.notifyDataSetChanged();
+        uDataBase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                if(listUsers != null) listUsers.clear();
+                for(DataSnapshot ds : dataSnapshot.getChildren())
+                {
+                    Users user = ds.getValue(Users.class);
+                    assert user != null;
+                    listUsers.add(user);
+                }
+
+                aDataBase.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                    {
+                        if(listAppointment != null) listAppointment.clear();
+                        for(DataSnapshot ds : dataSnapshot.getChildren())
+                        {
+                            Appointment appointment = ds.getValue(Appointment.class);
+                            assert appointment != null;
+                            listAppointment.add(appointment);
+                        }
+
+
+                        for(Users u : listUsers)
+                        {
+                            if (userEmail.equals(u.getEmail()))
+                            {
+                                for(Appointment a : listAppointment)
+                                {
+                                    if(a.getNumberUser().equals(u.getNumber()))
+                                    {
+                                        listPut.add(a.getUslugaName() + " ");
+                                    }
+                                }
+                            }
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
     }
 
     private void Init()
@@ -115,6 +179,14 @@ public class ProfileActivity extends AppCompatActivity {
         listPut = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listPut);
         lvHistoryList.setAdapter(adapter);
+
+        uDataBase = FirebaseDatabase.getInstance().getReference("Users");
+        aDataBase = FirebaseDatabase.getInstance().getReference(Const.APPOINTMENT_KEY);
+        mAuth = FirebaseAuth.getInstance();
+        userEmail = mAuth.getCurrentUser().getEmail();
+
+        listUsers = new ArrayList<>();
+        listAppointment = new ArrayList<>();
     }
 
     private void DownPanel()

@@ -1,25 +1,41 @@
 package com.example.autoservice_4.UserActivities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.autoservice_4.Const;
+import com.example.autoservice_4.Model.Users;
 import com.example.autoservice_4.Prevalent.Prevalent;
 import com.example.autoservice_4.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import io.paperdb.Paper;
 
 public class InfoHumanActivity extends AppCompatActivity {
-    private ImageView btnBack, btnEditFio, btnEditContacts;
-    private Button btnSaveFio, btnSaveContacts;
+    private ImageView btnBack, btnEdit;
+    private Button btnSaveContacts;
     private EditText etName, etSecName, etPatronomic, etNumber, etEmail;
     private String userName, userSecName, userPatronomic, userNumber, userEmail;
+    private FirebaseAuth mAuth;
+    private DatabaseReference mDataBase;
+    private Users user;
+    private List<Users> listUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,103 +53,96 @@ public class InfoHumanActivity extends AppCompatActivity {
             }
         });
 
-        btnEditFio.setOnClickListener(new View.OnClickListener() {
+        btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                FioElements(1);
-
-                btnSaveFio.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view)
-                    {
-                        String name = etName.getText().toString();
-                        String secName = etSecName.getText().toString();
-                        String patronomic = etPatronomic.getText().toString();
-
-                        Paper.book().write(Const.USER_NAME_KEY,name);
-                        Paper.book().write(Const.USER_SEC_NAME_KEY,secName);
-                        Paper.book().write(Const.USER_PATRONOMIC_KEY,patronomic);
-
-                        etName.setText(name);
-                        etSecName.setText(secName);
-                        etPatronomic.setText(patronomic);
-
-                        FioElements(0);
-
-                    }
-                });
-            }
-        });
-
-        btnEditContacts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ContactsElements(1);
+                Elements(1);
 
                 btnSaveContacts.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view)
                     {
-                        String number = etNumber.getText().toString();
+                        userName = etName.getText().toString();
+                        userSecName = etSecName.getText().toString();
+                        userPatronomic = etPatronomic.getText().toString();
+                        userNumber = etNumber.getText().toString();
 
-                        Paper.book().write(Const.USER_NUMBER_KEY, number);
+                        etName.setText(userName);
+                        etSecName.setText(userSecName);
+                        etPatronomic.setText(userPatronomic);
+                        etNumber.setText((userNumber));
 
-                        etNumber.setText(number);
+                        user.setName(userName);
+                        user.setSecName(userSecName);
+                        user.setPatronomic(userPatronomic);
+                        user.setNumber(userNumber);
+                        user.setEmail(userEmail);
 
-                        ContactsElements(0);
+                        if(!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(userSecName) && !TextUtils.isEmpty(userPatronomic) && !TextUtils.isEmpty(userNumber))
+                            mDataBase.push().setValue(user);
+
+                        Elements(0);
+
                     }
                 });
             }
         });
-
     }
 
     private void PutEditTexts()
     {
-        etName.setText(userName);
-        etSecName.setText(userSecName);
-        etPatronomic.setText(userPatronomic);
-        etNumber.setText(userNumber);
-        etEmail.setText(userEmail);
+        mDataBase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                if(listUsers != null) listUsers.clear();
+                for(DataSnapshot ds : dataSnapshot.getChildren())
+                {
+                    Users user = ds.getValue(Users.class);
+                    assert user != null;
+                    listUsers.add(user);
+                }
+
+                for(Users u : listUsers)
+                {
+                    if(userEmail.equals(u.getEmail()))
+                    {
+                       etName.setText(u.getName());
+                       etSecName.setText(u.getSecName());
+                       etPatronomic.setText(u.getPatronomic());
+                       etNumber.setText(u.getNumber());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
-    private void FioElements(int x)
+    private void Elements(int x)
     {
         switch (x)
         {
             case(0):
-                btnEditFio.setVisibility(View.VISIBLE);
-                btnSaveFio.setVisibility(View.GONE);
+                btnEdit.setVisibility(View.VISIBLE);
+                btnSaveContacts.setVisibility(View.GONE);
                 etName.setEnabled(false);
                 etSecName.setEnabled(false);
                 etPatronomic.setEnabled(false);
-                break;
-
-            case(1):
-                btnEditFio.setVisibility(View.GONE);
-                btnSaveFio.setVisibility(View.VISIBLE);
-                etName.setEnabled(true);
-                etSecName.setEnabled(true);
-                etPatronomic.setEnabled(true);
-                break;
-        }
-    }
-
-    private void ContactsElements(int x)
-    {
-        switch (x)
-        {
-            case (0):
-                btnEditContacts.setVisibility(View.VISIBLE);
-                btnSaveContacts.setVisibility(View.GONE);
                 etNumber.setEnabled(false);
                 etEmail.setEnabled(false);
                 break;
 
-            case (1):
-                btnEditContacts.setVisibility(View.GONE);
+            case(1):
+                btnEdit.setVisibility(View.GONE);
                 btnSaveContacts.setVisibility(View.VISIBLE);
+                etName.setEnabled(true);
+                etSecName.setEnabled(true);
+                etPatronomic.setEnabled(true);
                 etNumber.setEnabled(true);
                 etEmail.setEnabled(false);
                 break;
@@ -143,10 +152,8 @@ public class InfoHumanActivity extends AppCompatActivity {
     private void Init()
     {
         btnBack = (ImageView) findViewById(R.id.infohuman_btnBack);
-        btnEditFio = (ImageView) findViewById(R.id.infohuman_btnEditFio);
-        btnEditContacts = (ImageView) findViewById(R.id.infohuman_btnEditContacts);
+        btnEdit = (ImageView) findViewById(R.id.infhuman_btnEdit);
 
-        btnSaveFio = (Button) findViewById(R.id.infohuman_btnSaveFio);
         btnSaveContacts = (Button) findViewById(R.id.infohuman_btnSaveContacts);
 
         etName = (EditText) findViewById(R.id.infohuman_etName);
@@ -155,10 +162,12 @@ public class InfoHumanActivity extends AppCompatActivity {
         etNumber = (EditText) findViewById(R.id.infohuman_etNumber);
         etEmail = (EditText) findViewById(R.id.infohuman_etEmail);
 
-        userName = Paper.book().read(Const.USER_NAME_KEY);
-        userSecName = Paper.book().read(Const.USER_SEC_NAME_KEY);
-        userPatronomic = Paper.book().read(Const.USER_PATRONOMIC_KEY);
-        userNumber = Paper.book().read(Const.USER_NUMBER_KEY);
-        userEmail = Paper.book().read(Prevalent.UserEmailKey);
+        user = new Users();
+
+        mAuth = FirebaseAuth.getInstance();
+        userEmail = mAuth.getCurrentUser().getEmail();
+        mDataBase = FirebaseDatabase.getInstance().getReference("Users");
+
+        listUsers = new ArrayList<>();
     }
 }
