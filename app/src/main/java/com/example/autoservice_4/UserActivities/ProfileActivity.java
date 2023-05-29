@@ -107,6 +107,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
+                if(listPut != null) listPut.clear();
                 if(listUsers != null) listUsers.clear();
                 for(DataSnapshot ds : dataSnapshot.getChildren())
                 {

@@ -36,6 +36,8 @@ public class ShowDetalisUslugaActivity extends AppCompatActivity {
     private List<Users> listUsers;
     private FirebaseAuth mAuth;
     private String userEmail, name, secName, patronomic, number, uslugaName;
+    private int result;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +54,13 @@ public class ShowDetalisUslugaActivity extends AppCompatActivity {
             }
         });
 
-        Intent i = getIntent();
+        btnAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppointmentUser();
+            }
+        });
+
         if(i != null)
         {
             tvTitle.setText(i.getStringExtra(Const.INTENT_EXTRA1));
@@ -60,49 +68,58 @@ public class ShowDetalisUslugaActivity extends AppCompatActivity {
             tvTime.setText(i.getStringExtra(Const.INTENT_EXTRA3));
             tvFullPrice.setText(i.getStringExtra(Const.INTENT_EXTRA4));
         }
+    }
 
-        btnAppointment.setOnClickListener(new View.OnClickListener() {
+    private void AppointmentUser()
+    {
+        assert i != null;
+        uslugaName = i.getStringExtra(Const.INTENT_EXTRA1);
+
+        usersDataBase.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view)
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                assert i != null;
-                uslugaName = i.getStringExtra(Const.INTENT_EXTRA1);
+                if(listUsers != null) listUsers.clear();
+                for(DataSnapshot ds : dataSnapshot.getChildren())
+                {
+                    Users user = ds.getValue(Users.class);
+                    assert user != null;
+                    listUsers.add(user);
+                }
 
-                usersDataBase.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                for(Users u : listUsers)
+                {
+                    if(userEmail.equals(u.getEmail()))
                     {
-                        if(listUsers != null) listUsers.clear();
-                        for(DataSnapshot ds : dataSnapshot.getChildren())
-                        {
-                            Users user = ds.getValue(Users.class);
-                            assert user != null;
-                            listUsers.add(user);
-                        }
+                        name = u.getName();
+                        secName = u.getSecName();
+                        patronomic = u.getPatronomic();
+                        number = u.getNumber();
 
-                        for(Users u : listUsers)
-                        {
-                            if(userEmail.equals(u.getEmail()))
-                            {
-                                name = u.getName();
-                                secName = u.getSecName();
-                                patronomic = u.getPatronomic();
-                                number = u.getNumber();
+                        Toast.makeText(ShowDetalisUslugaActivity.this, "Вы успешно записаны на услугу: "+ uslugaName +
+                                "\nОжидайте, вам перезвонят в течение часа", Toast.LENGTH_SHORT).show();
 
-                                Toast.makeText(ShowDetalisUslugaActivity.this, "Вы успешно записаны на услугу: "+ uslugaName +
-                                        "\nОжидайте, вам перезвонят в течение часа", Toast.LENGTH_SHORT).show();
-
-                                Appointment appointment = new Appointment(uslugaName, name, secName, patronomic, number);
-                                appointmentDataBase.push().setValue(appointment);
-                            }
-                        }
+                        Appointment appointment = new Appointment(uslugaName, name, secName, patronomic, number);
+                        appointmentDataBase.push().setValue(appointment);
+                        result = 0;
                     }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
+                    else
+                    {
+                        result = 1;
                     }
-                });
+                }
+                if (result == 1)
+                {
+                    Toast.makeText(ShowDetalisUslugaActivity.this, "Не удалось записаться на услугу!" +
+                            "\nЗаполните данные в профиле!", Toast.LENGTH_SHORT).show();
+                    Intent goProfile = new Intent(ShowDetalisUslugaActivity.this, ProfileActivity.class);
+                    startActivity(goProfile);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
@@ -123,5 +140,9 @@ public class ShowDetalisUslugaActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         listUsers = new ArrayList<>();
         userEmail = mAuth.getCurrentUser().getEmail();
+
+        result = 0;
+
+        i = getIntent();
     }
 }
