@@ -8,8 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.example.autoservice_4.MainActivities.MainActivity;
 import com.example.autoservice_4.Model.Appointment;
 import com.example.autoservice_4.Model.Uslugi;
 import com.example.autoservice_4.R;
@@ -24,6 +27,7 @@ import java.util.List;
 
 public class ZapisActivity extends AppCompatActivity {
     private Toolbar tobAdd, tobUslugi;
+    private ImageView btnBack;
     private ListView lvAppointment;
     private List<String> listData;
     private List<Appointment> listTemp;
@@ -38,6 +42,14 @@ public class ZapisActivity extends AppCompatActivity {
         Init();
         DownPanel();
         GetDataFromDB();
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goMain = new Intent(ZapisActivity.this, MainActivity.class);
+                startActivity(goMain);
+            }
+        });
     }
 
     private void GetDataFromDB() {
@@ -75,6 +87,8 @@ public class ZapisActivity extends AppCompatActivity {
         lvAppointment.setAdapter(adapter);
 
         mDataBase = FirebaseDatabase.getInstance().getReference("Appointment");
+
+        btnBack = (ImageView) findViewById(R.id.zapis_btnBack);
     }
 
     private void DownPanel() {

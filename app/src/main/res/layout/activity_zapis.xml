@@ -8,12 +8,24 @@
     tools:context=".AdminActivities.ZapisActivity">
 
 
+    <ImageView
+        android:id="@+id/zapis_btnBack"
+        android:layout_width="44dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/uslugi_tvTitle4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_icon" />
+
     <TextView
         android:id="@+id/uslugi_tvTitle4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-medium"
         android:text="История записи"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"

@@ -30,17 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mAuth = FirebaseAuth.getInstance();
-
-        btnBack = (Button) findViewById(R.id.reg_btnBack);
-        btnLogin = (Button) findViewById(R.id.reg_btnLogin);
-        btnRegister = (Button) findViewById(R.id.reg_btnRegister);
-
-        etMailInput = (EditText) findViewById(R.id.reg_numberInput);
-        etPasswordInput = (EditText) findViewById(R.id.reg_passInput);
-        etPodPasswordInput = (EditText) findViewById(R.id.reg_podPassInput);
-
-        loadingBar = new ProgressDialog(this);
+        Init();
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,5 +95,20 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    private void Init()
+    {
+        mAuth = FirebaseAuth.getInstance();
+
+        btnBack = (Button) findViewById(R.id.reg_btnBack);
+        btnLogin = (Button) findViewById(R.id.reg_btnLogin);
+        btnRegister = (Button) findViewById(R.id.reg_btnRegister);
+
+        etMailInput = (EditText) findViewById(R.id.reg_numberInput);
+        etPasswordInput = (EditText) findViewById(R.id.reg_passInput);
+        etPodPasswordInput = (EditText) findViewById(R.id.reg_podPassInput);
+
+        loadingBar = new ProgressDialog(this);
     }
 }

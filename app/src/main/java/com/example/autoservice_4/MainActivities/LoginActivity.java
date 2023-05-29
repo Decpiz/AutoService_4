@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
-    private Button btnLogin, btnBack, btnAdmin, btnZabilParol;
+    private Button btnLogin, btnBack, btnAdmin;
     private EditText etMailInput, etPasswordInput;
     private CheckBox cbZapomnit;
     private ProgressDialog loadingBar;
@@ -61,7 +61,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void LoginUser() {
+    private void LoginUser()
+    {
         String email = etMailInput.getText().toString();
         String password = etPasswordInput.getText().toString();
 
@@ -112,7 +113,6 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin = (Button) findViewById(R.id.log_btnLogin);
         btnBack = (Button) findViewById(R.id.log_btnBack);
-        btnZabilParol = (Button) findViewById(R.id.log_btnZabilPass);
         btnAdmin = (Button) findViewById(R.id.log_btnAdmin);
 
         etMailInput = (EditText) findViewById(R.id.log_numberInput);

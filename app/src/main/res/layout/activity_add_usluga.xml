@@ -7,12 +7,24 @@
     android:background="#818181"
     tools:context=".AdminActivities.AddUslugaActivity">
 
+    <ImageView
+        android:id="@+id/add_btnBack"
+        android:layout_width="44dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/uslugi_tvTitle3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_icon" />
+
     <TextView
         android:id="@+id/uslugi_tvTitle3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-medium"
         android:text="Новая услуга"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -34,6 +46,51 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uslugi_tvTitle3" />
+
+    <TextView
+        android:id="@+id/uslugi_tvTitle6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="руб"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toEndOf="@+id/titleInput"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/uslugi_tvTitle7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="час"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toEndOf="@+id/timeInput"
+        app:layout_constraintTop_toBottomOf="@+id/uslugi_tvTitle6" />
+
+    <TextView
+        android:id="@+id/uslugi_tvTitle8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="руб"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toEndOf="@+id/fullPriceInput"
+        app:layout_constraintTop_toBottomOf="@+id/uslugi_tvTitle7" />
 
     <EditText
         android:id="@+id/titleInput"
@@ -93,7 +150,7 @@
         android:background="@drawable/et_info"
         android:ems="10"
         android:hint="Общая стоимость"
-        android:inputType="text"
+        android:inputType="number"
         android:paddingLeft="12dp"
         android:textColorHint="#59000000"
         app:layout_constraintEnd_toEndOf="@+id/timeInput"

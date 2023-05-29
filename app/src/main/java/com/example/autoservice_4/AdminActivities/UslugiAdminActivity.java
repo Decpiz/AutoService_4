@@ -9,9 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.autoservice_4.Const;
+import com.example.autoservice_4.MainActivities.MainActivity;
 import com.example.autoservice_4.Model.Uslugi;
 import com.example.autoservice_4.R;
 import com.example.autoservice_4.UserActivities.ProfileActivity;
@@ -29,6 +32,7 @@ import java.util.List;
 
 public class UslugiAdminActivity extends AppCompatActivity {
     private Toolbar tobAdd, tobZapis;
+    private ImageView btnBack;
 
     private DatabaseReference mDataBase;
 
@@ -45,6 +49,14 @@ public class UslugiAdminActivity extends AppCompatActivity {
         Init();
         DownPanel();
         GetDataFromDB();
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goMain = new Intent(UslugiAdminActivity.this, MainActivity.class);
+                startActivity(goMain);
+            }
+        });
 
     }
 
@@ -87,6 +99,8 @@ public class UslugiAdminActivity extends AppCompatActivity {
         lvUslugiList.setAdapter(adapter);
 
         mDataBase = FirebaseDatabase.getInstance().getReference(Const.USLUGI_KEY);
+
+        btnBack = (ImageView) findViewById(R.id.uslugi_btnBack);
     }
 
     private void DownPanel()

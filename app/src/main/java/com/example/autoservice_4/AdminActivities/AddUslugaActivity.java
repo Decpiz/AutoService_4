@@ -11,9 +11,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.autoservice_4.Const;
+import com.example.autoservice_4.MainActivities.MainActivity;
 import com.example.autoservice_4.Model.Uslugi;
 import com.example.autoservice_4.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AddUslugaActivity extends AppCompatActivity {
     private Toolbar tobUslugi, tobZapis;
     private Button btnAdd;
+    private ImageView btnBack;
     private EditText et1, et2;
     private EditText et3, et4;
     private DatabaseReference mDataBase;
@@ -35,6 +38,14 @@ public class AddUslugaActivity extends AppCompatActivity {
 
         Init();
         DownPanel();
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goMain = new Intent(AddUslugaActivity.this, MainActivity.class);
+                startActivity(goMain);
+            }
+        });
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +106,8 @@ public class AddUslugaActivity extends AppCompatActivity {
         tobZapis = (Toolbar) findViewById(R.id.tobZapis);
 
         confirmAdd = new AlertDialog.Builder(this);
+
+        btnBack = (ImageView) findViewById(R.id.add_btnBack);
     }
 
     private void DownPanel()

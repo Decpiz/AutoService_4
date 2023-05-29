@@ -55,7 +55,7 @@
         android:id="@+id/uslugi_tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="88dp"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-medium"
         android:text="Услуги"
@@ -95,5 +95,17 @@
         app:layout_constraintStart_toEndOf="@+id/tobAdd"
         app:layout_constraintTop_toTopOf="@+id/tobZapis"
         app:srcCompat="@drawable/zapis_icon" />
+
+    <ImageView
+        android:id="@+id/uslugi_btnBack"
+        android:layout_width="44dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/uslugi_tvTitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

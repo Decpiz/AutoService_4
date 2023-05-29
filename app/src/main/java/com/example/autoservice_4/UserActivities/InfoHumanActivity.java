@@ -92,6 +92,7 @@ public class InfoHumanActivity extends AppCompatActivity {
 
     private void PutEditTexts()
     {
+        etEmail.setText(userEmail);
         mDataBase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)

@@ -157,9 +157,6 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 
     private void Init()
